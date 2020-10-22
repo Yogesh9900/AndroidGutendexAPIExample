@@ -52,17 +52,20 @@ class BooksListActivity : AppCompatActivity(), OnBooksItemClick {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books_list)
 
+
+        topic = intent.getStringExtra("topic")!!
+
         val toolbar: Toolbar = findViewById(R.id.toolbar) as MaterialToolbar
         // Toolbar :: Transparent
         toolbar.setBackgroundColor(Color.TRANSPARENT)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setTitle(topic.capitalize(Locale.ROOT))
+        supportActionBar!!.setTitle(topic.capitalize())
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
 
         list = ArrayList()
         layoutManager = GridLayoutManager(this, 3)
-        topic = intent.getStringExtra("topic")!!
+
 
 
         // Status bar :: Transparent
